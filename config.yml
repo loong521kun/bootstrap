@@ -23,6 +23,8 @@ layoutDir:              "site/layouts"
 staticDir:              "site/static"
 themesDir:              "site/themes"
 
+googleAnalytics: UA-146052-10
+
 params:
   description:          "The most popular HTML, CSS, and JS library in the world."
   authors:              "Mark Otto, Jacob Thornton, and Bootstrap contributors"

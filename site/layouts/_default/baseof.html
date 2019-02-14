@@ -1,0 +1,35 @@
+<!doctype html>
+<html lang="{{ .Site.LanguageCode }}">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="{{ with .Description }}{{ . }}{{ else }}{{ if .IsPage }}{{ .Summary }}{{ else }}{{ with .Site.Params.description }}{{ . }}{{ end }}{{ end }}{{ end }}">
+    <meta name="author" content="{{ .Site.Params.authors }}">
+    <meta name="docsearch:language" content="en">
+    <meta name="docsearch:version" content="{{ .Site.Params.docs_version }}">
+    <title>{{ block "title" . }}{{ .Title }} · {{ .Site.Title }}{{ end }}</title>
+    <link rel="canonical" href="{{ .Permalink }}">
+    {{ partial "head/stylesheet.html" . }}
+    {{ partial "head/favicons.html" . }}
+    {{ partial "head/social.html" . }}
+    {{ partial "head/analytics.html" . }}
+    {{ block "extra_css" . }}{{ end }}
+  </head>
+  <body{{ with .Page.Params.body_class }} class="{{ . }}"{{ end }}>
+    {{ block "header" . }}
+      {{ partial "skippy.html" . }}
+      {{ partial "docs-navbar.html" . }}
+      {{ partial "page-header.html" . }}
+    {{ end }}
+    {{ block "main" . }}
+      <main class="bd-content p-5" id="content" role="main">
+        {{ .Content }}
+      </main>
+    {{ end }}
+    {{ block "footer" . }}
+      {{ partial "page-footer.html" . }}
+      {{ partial "scripts.html" . }}
+    {{ end }}
+    {{ block "after_footer" . }}{{ end }}
+  </body>
+</html>
