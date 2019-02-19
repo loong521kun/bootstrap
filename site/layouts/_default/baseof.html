@@ -21,15 +21,18 @@
       {{ partial "docs-navbar.html" . }}
       {{ partial "page-header.html" . }}
     {{ end }}
+
     {{ block "main" . }}
       <main class="bd-content p-5" id="content" role="main">
         {{ .Content }}
       </main>
     {{ end }}
+
     {{ block "footer" . }}
       {{ partial "page-footer.html" . }}
       {{ partial "scripts.html" . }}
     {{ end }}
+
     {{ block "after_footer" . }}{{ end }}
   </body>
 </html>
